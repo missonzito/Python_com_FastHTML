@@ -1,4 +1,4 @@
-from fasthtml.common import Div, H1, P
+from fasthtml.common import Div, H1, P, Form, Input, Button
 
 def gerar_titulo(titulo, subtitulo):
     return Div(
@@ -6,3 +6,15 @@ def gerar_titulo(titulo, subtitulo):
         P(subtitulo),
         P("Esse componente foi gerado com FastHTML")
     )
+
+def gerar_formulario():
+    formulario = Form(
+        Input(type="text", name="tarefa", placeholder="insira a tarefa a ser adicionada"),
+        Button("Enviar"),
+        method="Post",
+        action="/adicionar tarefa"
+    )
+    return formulario
+
+def lista_tarefas():
+    pass
