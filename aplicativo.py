@@ -8,7 +8,6 @@ lista_tarefas = []
 @routes("/")
 def homepage():
     formulario = gerar_formulario()
-    print(lista_tarefas)
     elemento_lista_tarefas = gerar_lista_tarefas(lista_tarefas)
     return Titled("Lista de Tarefas", formulario, elemento_lista_tarefas)
 
@@ -16,6 +15,12 @@ def homepage():
 def adicionar_tarefas(tarefa: str):
     if tarefa:
         lista_tarefas.append(tarefa)
+    return RedirectResponse(url="/", status_code=303)
+
+@routes("/deletar/{posicao}")
+def deletar(posicao: int):
+    if len(lista_tarefas) > posicao:
+        lista_tarefas.pop(posicao)
     return RedirectResponse(url="/", status_code=303)
 
 @routes("/Blog")
