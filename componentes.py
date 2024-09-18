@@ -1,4 +1,4 @@
-from fasthtml.common import Div, H1, P, Form, Input, Button
+from fasthtml.common import Div, H1, P, Form, Input, Button, Ul, Li
 
 def gerar_titulo(titulo, subtitulo):
     return Div(
@@ -16,5 +16,11 @@ def gerar_formulario():
     )
     return formulario
 
-def gerar_lista_tarefas():
-    pass
+def gerar_lista_tarefas(lista_tarefas):
+
+    itens_lista = [Li(tarefa, " - ", A("Excluir", href="/deletar")) for tarefa in lista_tarefas]
+    
+    lista = Ul(
+        *itens_lista
+    )
+    return lista
