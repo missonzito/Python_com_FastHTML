@@ -21,7 +21,10 @@ def gerar_formulario():
 
 def gerar_lista_tarefas(lista_tarefas):
 
-    itens_lista = [Li(tarefa, " - ", A("Excluir", href=f"/deletar/{i}")) for i, tarefa in enumerate (lista_tarefas)]
+    itens_lista = [Li(tarefa, " - ", A("Excluir",
+                                        hx_get=f"/deletar/{i}",
+                                        hx_target="#lista-tarefas",
+                                        hx_swap="outerHTML")) for i, tarefa in enumerate(lista_tarefas)]
     
     lista = Ul(
         *itens_lista, id="lista-tarefas"

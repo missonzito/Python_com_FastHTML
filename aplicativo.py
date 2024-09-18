@@ -21,7 +21,7 @@ def adicionar_tarefas(tarefa: str):
 def deletar(posicao: int):
     if len(lista_tarefas) > posicao:
         lista_tarefas.pop(posicao)
-    return RedirectResponse(url="/", status_code=303)
+    return gerar_lista_tarefas(lista_tarefas)
 
 @routes("/Blog")
 def homepage():
