@@ -11,10 +11,10 @@ def gerar_formulario():
     formulario = Form(
         Input(type="text", name="tarefa", placeholder="insira a tarefa a ser adicionada"),
         Button("Enviar"),
-        method="Post",
-        action="/adicionar tarefa"
+        method="post",
+        action="/adicionar_tarefa"
     )
     return formulario
 
-def lista_tarefas():
+def gerar_lista_tarefas():
     pass
