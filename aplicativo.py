@@ -15,7 +15,7 @@ def homepage():
 def adicionar_tarefas(tarefa: str):
     if tarefa:
         lista_tarefas.append(tarefa)
-    return RedirectResponse(url="/", status_code=303)
+    return gerar_lista_tarefas(lista_tarefas)
 
 @routes("/deletar/{posicao}")
 def deletar(posicao: int):

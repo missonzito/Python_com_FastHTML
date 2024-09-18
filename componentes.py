@@ -12,7 +12,10 @@ def gerar_formulario():
         Input(type="text", name="tarefa", placeholder="insira a tarefa a ser adicionada"),
         Button("Enviar"),
         method="post",
-        action="/adicionar_tarefa"
+        action="/adicionar_tarefa",
+        hx_post="/adicionar_tarefa",
+        hx_target="#lista-tarefas",
+        hx_swap="outerHTML"
     )
     return formulario
 
@@ -21,6 +24,6 @@ def gerar_lista_tarefas(lista_tarefas):
     itens_lista = [Li(tarefa, " - ", A("Excluir", href=f"/deletar/{i}")) for i, tarefa in enumerate (lista_tarefas)]
     
     lista = Ul(
-        *itens_lista
+        *itens_lista, id="lista-tarefas"
     )
     return lista
